@@ -1,0 +1,152 @@
+extends ../template
+block title
+  | Главная
+block content 
+  section#FS.firstScreen
+    .firstScreen-wrap
+      .firstScreen-desc
+        p.firstScreen-desc__title 
+          span Здоровье 
+          | для тех,<br>
+          | кто 
+          span думает о будущем
+        h1.firstScreen-desc__subTitle EZ Health - cистема позволяющая прогнозировать <br>болезни и управлять своим здоровьем
+        p.firstScreen-desc__text Оставить заявку и 
+          span опробовать раньше остальных
+        form.firstScreen-desc-form
+          input(type="email" required placeholder="Ваш Е-mail" name="firstScreenUserEmail")
+          button(type="submit") Отправить
+        p.firstScreen-desc__personalData Нажимая на кнопку, вы соглашаетесь<br> 
+          span с 
+            a(href="#") политикой обработки персональных данных
+      .firstScreen-img
+        img(src="assets/images/circles.svg", alt="").firstScreen-img__circles
+        img(src="assets/images/firstScreen-img.svg", alt="").firstScreen-img__img
+  section#howItWork.howItWork
+    img(src="assets/images/circles.svg", alt="").howItWork__circles.howItWork__circles_first
+    img(src="assets/images/circles.svg", alt="").howItWork__circles.howItWork__circles_second
+    img(src="assets/images/circles.svg", alt="").howItWork__circles.howItWork__circles_third
+    h2.howItWork__title Как работает?
+    .howItWork-wrap
+      .howItWork-block
+        img(src="assets/images/how1.svg" alt="Как работает? 1 Картинка")
+        p.howItWork-block__text Выберете набор показателей, <br>за которыми хотите наблюдать <br>и какие хотите улучшить 
+      .howItWork-block
+        img(src="assets/images/how2.svg" alt="Как работает? 2 Картинка")
+        p.howItWork-block__text Мы анализируем <br>ваши данные
+      .howItWork-block
+        img(src="assets/images/how3.svg" alt="Как работает? 3 Картинка")
+        p.howItWork-block__text Сформируют рекомендации <br>персонально для вас
+  section.largeGradient(style="background-image: url('assets/images/largeGradient.svg');")
+    img(src="assets/images/circles.svg", alt="").largeGradient__circles.largeGradient__circles_first
+    img(src="assets/images/circles.svg", alt="").largeGradient__circles.largeGradient__circles_second
+    .defaultForm
+      h3.defaultForm__title Хочу попробовать раньше остальных
+      form.defaultForm-form
+        input(type="text" name="" required placeholder="Ваше имя").defaultForm__input
+        input(type="email" required placeholder="E-mail").defaultForm__input
+        button(type="submit").defaultForm__btn Отправить
+      p.defaultForm__policity Нажимая на кнопку, вы соглашаетесь <a href="#">с политикой <br>обработки персональных данных</a>
+    article#whyEZ.whyEZ
+      h3.whyEZ__title Почему EzHealth?
+      .whyEZ-grid
+        .whyEZ-grid-item
+          .whyEZ-grid-item-imgbox
+            img(src="assets/images/why1.png", alt="")
+          p.centerString.whyEZ-grid-item__title Меньше болезней
+          p.centerString.whyEZ-grid-item__text Контролируйте свои жизненные <br>показателии меньше болейте
+        .whyEZ-grid-item.whyEZ-grid-item_2
+          .whyEZ-grid-item-imgbox
+            img(src="assets/images/why2.png", alt="")
+            img(src="assets/images/why2_dop.png", alt="").whyEZ-grid-item-imgbox__dop
+          p.centerString.whyEZ-grid-item__title Выше продуктивность
+          p.centerString.whyEZ-grid-item__text Успевайте больше и достигните <br>всех Ваших целей
+        .whyEZ-grid-item
+          .whyEZ-grid-item-imgbox
+            img(src="assets/images/why3.png", alt="")
+          p.centerString.whyEZ-grid-item__title Выше качество жизни
+          p.centerString.whyEZ-grid-item__text Никакого упадка <br>сил и хандры
+        .whyEZ-grid-item.whyEZ-grid-item_4
+          .whyEZ-grid-item-imgbox
+            img(src="assets/images/why4.png", alt="")
+            img(src="assets/images/why4_dop.png", alt="").whyEZ-grid-item-imgbox__dop
+          p.centerString.whyEZ-grid-item__title Больше времени
+          p.centerString.whyEZ-grid-item__text Живите дольше <br>и проводите больше времени <br>с важными для Вас людьми
+  section#who.who
+    h3.who__title Для кого?
+    .who-grid
+      .who-block-imgbox
+        img(src="assets/images/who1.svg", alt="")
+      .who-block-desc
+        p.who-block-desc__title Ведете здоровый образ жизни или хотите начать, <br>но не знаете как
+        p.who-block-desc__text Мы поможем легко привести себя в хорошую <br>физическую форму без вреда здоровью
+      .empty
+      .empty
+      .who-block-desc
+        p.who-block-desc__title Много приложений для здоровья <br>на разных устройствах
+        p.who-block-desc__text Все данные с часов, фитнес-браслета <br>и смартфона - в одном месте.
+      .who-block-imgbox
+        img(src="assets/images/who2.svg", alt="")
+      .who-block-imgbox
+        img(src="assets/images/who3.svg", alt="")
+      .who-block-desc
+        p.who-block-desc__title Вы - мед.специалист или фитнес-тренер
+        p.who-block-desc__text Пользуйстесь сервисом и давайте профессиональные <br>рекомендации другим людям, как улучшить <br>свою жизнь
+      .empty
+  section.howMuch(style="background-image: url('assets/images/howMuch-bg.svg');")
+    h3#howMuch.howMuch__title Сколько стоит?
+    p.howMuch__text Участие в тестировании сервиса - <br>
+      span совершенно БЕСПЛАТНО
+    img(src="assets/images/free.svg" alt="EZ Health бесплатно")
+  section#genForm.soloForm
+    .defaultForm
+      h3.defaultForm__title Помогите развитию проекта EZ Health
+      p.defaultForm__subtitle Запишитесь в бесплатную группу тестирования <br>и почувствуйте изменения в жизни!
+      form.defaultForm-form
+        input(type="text" name="" required placeholder="Ваше имя").defaultForm__input
+        input(type="email" required placeholder="E-mail").defaultForm__input
+        button(type="submit").defaultForm__btn Отправить
+      p.defaultForm__policity Нажимая на кнопку, вы соглашаетесь <a href="#">с политикой <br>обработки персональных данных</a>
+  section.team
+    img(src="assets/images/circles.svg", alt="").team__circles.team__circles_first
+    img(src="assets/images/circles.svg", alt="").team__circles.team__circles_second
+    h3.team__title Команда
+    .team-wrap-outer
+      .team-wrap
+        .team-item
+          .team-item__img
+            img(src="assets/images/team/evgeniy.png", alt="Евгений Дмитриев")
+            span(style="background-color: #01ADC1;")
+          p.centerString.team-item__name Евгений Дмитриев
+          p.centerString.team-item__role Идейный вдохновитель
+        .team-item
+          .team-item__img
+            img(src="assets/images/team/vladimir.png", alt="Владимир Богодист")
+            span(style="background-color: #BAD7E0;")
+          p.centerString.team-item__name Владимир Богодист
+          p.centerString.team-item__role Дезигнер сего чуда
+        .team-item
+          .team-item__img
+            img(src="assets/images/team/tatiyana.png", alt="Татьяна Побережец")
+            span(style="background-color: #3FA3F0;")
+          p.centerString.team-item__name Татьяна Побережец
+          p.centerString.team-item__role ?
+        .team-item
+          .team-item__img
+            img(src="assets/images/team/irina.png", alt="Ирина Дмитриева")
+            span(style="background-color: #E57171;")
+          p.centerString.team-item__name Ирина Дмитриева
+          p.centerString.team-item__role ?
+        .team-item
+          .team-item__img
+            img(src="assets/images/team/nastya.png", alt="Анастасия Вавилова")
+            span(style="background-color: #E8E3A7;")
+          p.centerString.team-item__name Анастасия Вавилова
+          p.centerString.team-item__role ?
+        .team-item
+          .team-item__img
+            img(src="assets/images/team/sasha.png", alt="Александр Рыбаков")
+            span(style="background-color: #002C69;")
+          p.centerString.team-item__name Александр Рыбаков
+          p.centerString.team-item__role Чудо - разраб
+        

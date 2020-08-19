@@ -1,0 +1,40 @@
+.footer{
+  background-color: #C4C4C4;
+  &-wrap{
+    max-width: 1256px;
+    padding: 0 24px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+  &__policity{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+  }
+  &-nav{
+    margin: 0 auto;
+    &__link{
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      color: #6B6B6B;
+      &:not(:last-child){
+        margin-right: 48px;
+      }
+    }
+  }
+  &-social{
+    margin-left: auto;
+    margin-right: auto;
+    &__link{
+      padding: 16px;
+      display: block;
+      &:not(:last-child){
+        margin-right: 24px;
+      }
+    }
+  }
+}
