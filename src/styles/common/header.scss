@@ -7,6 +7,10 @@ svg{
   display: block;
 }
 
+body{
+  position: relative;
+}
+
 .header{
   position: fixed;
   top: 0;
@@ -16,6 +20,16 @@ svg{
   z-index: 5;
   display: flex;
   align-items: center;
+  transition: background-color .3s;
+  &-mobile{
+    display: none;
+  }
+  &_moved{
+    background-color: rgba(255, 255, 255, 1);
+  }
+  &__burger{
+    display: none;
+  }
   &__logo{
     display: flex;
     align-items: center;
@@ -35,9 +49,15 @@ svg{
     &__link{
       font-size: 18px;
       line-height: 21px;
+      transition: .3s;
       color: #6B6B6B;
       &:not(:last-child){
         margin-right: 40px;
+      }
+      &:hover{
+        @media screen and (min-width: 1024px){
+          color: #409EF4;
+        }
       }
     }
   }
@@ -56,6 +76,130 @@ svg{
       font-size: 18px;
       line-height: 21px;
       color: #409EF4;
+      transition: .3s;
+      border: 1px solid transparent;
+      &:hover{
+        @media screen and (min-width: 1024px) {
+          border-color: #409EF4;
+        }
+      }
+      &:active{
+        @media screen and (min-width: 1024px) {
+          
+          box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(204, 213, 225, 0.75);
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1200px){
+  .header-nav__link:not(:last-child){
+    margin-right: 24px;
+  }
+}
+
+
+@media screen and (max-width: 1023px){
+  .header{
+    padding: 24px;
+    &-nav{
+      display: none;  
+    }
+    &__burger{
+      display: flex;
+      margin-left: 12px;
+      padding: 12px;
+      margin-right: -12px;
+      flex-direction: column;
+      span{
+        display: block;
+        background-color: #409EF4;
+        height: 2px;
+        border-radius: 1px;
+        transition: .5s;
+        width: 34px;
+        &:not(:last-child){
+          margin-bottom: 6px;
+        }
+      }
+    }
+    
+    &-right{
+      display: none;
+    }
+    &-mobile{
+      &_open{
+        transform: translateX(0);
+        & + .header{
+          .header__burger{
+            span{
+              &:nth-child(1){
+                transform: translateY(8px) rotate(-30deg);
+              }
+              &:nth-child(2){
+                transform: translateX(150%);
+                opacity: 0;
+              }
+              &:nth-child(3){
+                transform: translateY(-8px) rotate(30deg);
+              }
+            }
+          }
+          &_moved{
+            background-color: transparent;
+          }
+        }
+      }
+      position: fixed;
+      padding-top: 90px;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      z-index: 5;
+      width: 100%;
+      background: linear-gradient(150.65deg, #F5F4E3 47.42%, #8CBBE6 95.44%);
+      display: flex;
+      transform: translateX(100%);
+      flex-direction: column;
+      transition: .5s ease-in-out;
+      .header-right{
+        display: flex;
+        flex-direction: column;
+        margin: 72px auto 0;
+        &__facebook{
+          display: block;
+          margin-right: 0;
+          margin-bottom: 56px;
+        }
+        &__CTA{
+          width: 100%;
+          max-width: 258px;
+        }
+      }
+      .header-nav{
+        display: flex;
+        margin-top: 32px;
+        flex-direction: column;
+        &__link{
+          &:not(:last-child){
+            margin-right: 0;
+            margin-bottom: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 767px){
+  .header{
+    &__burger{
+      padding: 0;
+      margin: 0;
     }
   }
 }

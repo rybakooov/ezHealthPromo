@@ -45,7 +45,7 @@ const paths = {
 function templates() {
 	return gulp.src(paths.templates.pages)
 		.pipe(pug(
-		//	{ pretty: true }
+			{ pretty: true }
 		))
 		.pipe(gulp.dest(paths.root))
 		//.pipe(htmlbeautify());

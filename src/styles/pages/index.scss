@@ -32,15 +32,18 @@
   justify-content: center;
   &-wrap{
     width: 100%;
-    flex: none;
     max-width: 1158px;
     padding: 0 24px;
-    display: flex;
-    align-items: center;
+    display: grid;
     padding-bottom: 100px;
+    grid-template-columns: 525px auto;
   }
   &-desc{
-    //width: 525px;
+    &-top{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
     flex: none;
     &__title{
       font-weight: 500;
@@ -79,7 +82,14 @@
         width: 351px;
         height: 41px;
         margin-right: 32px;
-        padding: 10px 16px;;
+        color: #6B6B6B;
+        padding: 10px 16px;
+        transition: .3s;
+        &:focus, &:not(:placeholder-shown){
+          @media screen and (min-width: 1024px) {
+            box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(204, 213, 225, 0.75);
+          }
+        }
         &::placeholder{
           font-size: 18px;
           line-height: 21px;
@@ -90,6 +100,8 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 21px;
+        position: relative;
+        z-index: 1;
         color: #fff;
         padding: 10px 16px;
         background: #409EF4;
@@ -97,6 +109,19 @@
         border-radius: 15px;
         border: none;
         cursor: pointer;
+        border: 1px solid #409EF4;
+        transition: .3s;
+        &:hover{
+          @media screen and (min-width: 1024px) {
+            background: #F8F9FC;
+            color: #409EF4;
+          }
+        }
+        &:active{
+          @media screen and (min-width: 1024px) {
+            box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(204, 213, 225, 0.75);
+          }
+        }
       }
     }
     &__personalData{
@@ -107,16 +132,24 @@
         color: #409EF4;
         a{ 
           text-decoration: underline;
+          &:hover{
+            @media screen and (min-width: 1024px) {
+              text-decoration: none;
+            }
+          }
         }
       }
     }
   }
-  &-img{
-    flex: none;
+  &-img{    
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
     position: relative;
     &__img{
       margin-top: -60px;
       margin-left: 20px;
+      max-width: none;
     }
     &__circles{
       left: 10px;
@@ -295,9 +328,15 @@
     border-radius: 15px;
     font-size: 18px;
     line-height: 21px;
-    color: #464646;
+    color: #6B6B6B;
     height: 40px;
+    transition: .3s;
     padding: 0 16px;
+    &:focus, &:not(:placeholder-shown){
+      @media screen and (min-width: 1024px) {
+        box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(204, 213, 225, 0.75);
+      }
+    }
     &::placeholder{
       font-size: inherit;
       line-height: inherit;
@@ -318,7 +357,22 @@
     line-height: 21px;
     color: #FFFFFF;
     border: none;
+    border: 1px solid #409EF4;
     height: 40px;
+    transition: .3s;
+    cursor: pointer;
+    &:hover, &:active{
+      @media screen and (min-width: 1024px){
+        background: #F8F9FC;
+        color: #409EF4;
+        box-shadow: none;
+      }
+    }
+    &:active{
+      @media screen and (min-width: 1024px) {
+        box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.75), inset 5px 5px 10px rgba(204, 213, 225, 0.75);
+      }
+    }
   }
   &__policity{
     text-align: center;
@@ -329,6 +383,11 @@
     a{
       color: #409EF4;
       text-decoration: underline;
+      &:hover{
+        @media screen and (min-width: 1024px){
+          text-decoration: none;
+        }
+      }
     }
   }
 }
@@ -407,6 +466,7 @@
 
 .soloForm{
   margin-top: 130px;
+  padding: 0 24px;
   margin-bottom: 180px;
   .defaultForm__title{
     margin-bottom: 16px;
@@ -456,7 +516,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     width: calc(100% + 40px);
-    margin: -64px -40px;
+    margin: -40px;
     &-outer{
       display: flex;
       justify-content: center;
@@ -465,7 +525,7 @@
     }
   }
   &-item{
-    margin: 64px 40px;
+    margin: 40px;
     width: calc(100% / 3 - 80px);
     &__img{
       width: 160px;
@@ -501,6 +561,354 @@
       line-height: 19px;
       text-align: center;
       color: #8A8A8A;
+    }
+  }
+}
+
+label{
+  position: relative;
+  display: block;
+  .error{
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FC8D8D;
+    opacity: 0;
+    transition: .2s;
+  }
+}
+
+.inp-err{
+  border-color: #FC8D8D;
+  & + .error{
+    opacity: 1;
+  }
+}
+
+
+@media screen and (max-width: 1200px){
+  .centerString{
+    justify-content: center;
+  }
+  .centerString:before, .centerString:after{
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 1199px){
+  .firstScreen-img__img{
+    margin-left: -120px;
+  }
+}
+
+
+@media screen and (max-width: 1023px){
+  .firstScreen{
+    height: 700px;
+    &-img__img{
+      margin-left: -64px;
+    }
+    &-desc{
+      &__title{
+        font-size: 24px;
+        line-height: 30px;
+      }
+      &__subTitle{
+        font-size: 16px;
+        line-height: 19px;
+      }
+      &__text{
+        margin-top: 64px;
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+    &-wrap{
+      grid-template-columns: 380px auto;
+      padding-bottom: 40px;
+    }
+  }
+  .howItWork{
+    &-block{
+      &:nth-child(2){
+        margin-top: 32px;
+      }
+      &:nth-child(3){
+        margin-top: 32px;
+      }
+    }
+  }
+  .whyEZ{
+    &-grid{
+      flex-wrap: wrap;
+      &-item{
+        width: calc(50% - 24px);
+        margin: 12px;
+        max-width: none;
+        &-imgbox{
+          max-width: 194px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  .who{
+    .empty{
+      display: none;
+    }
+    &-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &-block{
+      &-imgbox{
+        margin: 0;
+      }
+      &-desc{
+        &__title{
+          white-space: normal;
+        }
+        &__text{
+          white-space: normal;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px){
+  .firstScreen{
+    height: auto;
+    display: block;
+    padding-top: 134px;
+    background-image: url('../images/firstScreen-bg-mob.svg');
+    padding-bottom: 180px;
+    &-desc{
+      &__title{
+        line-height: 28px;
+      }
+      &__subTitle{
+        font-size: 14px;
+        line-height: 16px;      
+        margin-bottom: 16px;  
+      }
+      &__text{
+        text-align: center;
+      }
+      &-form{
+        display: block;
+        input{
+          width: 100%;
+          margin-bottom: 16px;
+          margin-right: 0;
+        }
+        button{
+          display: block;
+          width: 100%;
+        }
+      }
+      &__personalData{
+        font-size: 13px;
+        line-height: 15px;
+        text-align: center;
+      }
+    }
+    &-wrap{
+      display: block;
+    }
+    &-img{
+      &__circles{
+        display: none;
+      }
+      &__img{
+        margin: 0 auto;
+        max-width: 360px;
+        width: 100%;
+      }
+    }
+  }
+  .howItWork{
+    padding-bottom: 48px;
+    &__circles{
+      display: none;
+    }
+    &__title{
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 48px;
+    }
+    &-block{
+      picture, img{
+        width: 100px;
+        flex-shrink: 0;
+      }
+      padding: 0;
+      &:nth-child(2){
+        justify-content: flex-start;
+      }
+      &:not(:first-child){
+        margin-top: 56px !important;
+      }
+      &__text{
+        font-size: 14px;
+        margin-left: 32px;
+        line-height: 16px;
+        br{
+          display: none;
+        }
+      }
+    }
+  }
+  .largeGradient{
+    background-image: url('../images/largeGradient-mob.svg') !important;
+    padding: 128px 24px 152px;
+    &__circles{
+      display: none;
+    }
+  }
+  .defaultForm{
+    &__title{
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 32px;
+    }
+    &__policity a{
+      display: block;
+    }
+  }
+  .whyEZ{
+    margin-top: 80px;
+    &__title{
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 48px;
+    }
+    &-grid{
+      &-item{
+        width: 100%;
+        margin: 0;
+        &:not(:last-child){
+          margin-bottom: 72px;
+        }
+        &__title{
+          font-size: 18px;
+        }
+        &__text{
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  .who{
+    padding: 0 24px 56px;
+    &__title{
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 80px;
+    }
+    &-grid{
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+    &-block{
+      &-imgbox{
+        &:not(:first-child){
+          margin-top: 80px;
+        }
+      }
+      &-desc{
+        padding-left: 0;
+        &__title{
+          margin-top: 40px;
+          font-size: 18px;
+          line-height: 21px;
+        }
+        &__text{
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+      &_1{
+        order: 0;
+      }
+      &_2{
+        order: 1;
+      }
+      &_3{
+        order: 2;
+      }
+      &_4{
+        order: 3;
+      }
+      &_5{
+        order: 4;
+      }
+      &_6{
+        order: 5;
+      }
+    }
+  }
+
+  .howMuch{
+    overflow: hidden;
+    background-image: url('../images/howMuch-bg-mob.svg') !important;
+    img{
+      min-width: 432px;
+      margin-top: -128px;
+      max-width: 0;
+    }
+    &__title{
+      margin-top: 104px;
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 40px;
+    }
+    &__text{
+      font-size: 14px;
+      line-height: 130%;
+    }
+  }
+
+  .soloForm{
+    margin-top: 72px;
+    margin-bottom: 80px;
+  }
+
+  .team{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    &__title{
+      margin-bottom: 56px;
+      font-size: 18px;
+      line-height: 21px;
+
+    }
+    &-wrap{
+      margin: 0;
+    }
+    &-item{
+      width: 100%;
+      margin: 0 auto;
+      &:not(:last-child){
+        margin-bottom: 64px;
+      }
+      &__name{
+        font-size: 18px;
+        line-height: 21px;
+      }
+      &__role{
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+    &__circles{
+      display: none;
     }
   }
 }
